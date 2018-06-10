@@ -4,6 +4,7 @@
   "description": "Unknown Type",
   "main": "index.js",
   "scripts": {
+    "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/ts-common/unknown/issues"
   },
+  "files": [
+    "index.d.ts"
+  ],
   "homepage": "https://github.com/ts-common/unknown#readme",
   "devDependencies": {
     "typescript": "^2.9.1"
