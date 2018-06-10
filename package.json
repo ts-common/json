@@ -1,0 +1,22 @@
+{
+  "name": "@ts-common/unknown",
+  "version": "0.0.0",
+  "description": "Unknown Type",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ts-common/unknown.git"
+  },
+  "author": "Sergey Shandar",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ts-common/unknown/issues"
+  },
+  "homepage": "https://github.com/ts-common/unknown#readme",
+  "devDependencies": {
+    "typescript": "^2.9.1"
+  }
+}
