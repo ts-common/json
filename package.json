@@ -1,7 +1,7 @@
 {
-  "name": "@ts-common/unknown",
+  "name": "@ts-common/json",
   "version": "0.0.1",
-  "description": "Unknown Type",
+  "description": "JSON Data Type",
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
@@ -9,17 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ts-common/unknown.git"
+    "url": "git+https://github.com/ts-common/json.git"
   },
   "author": "Sergey Shandar",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ts-common/unknown/issues"
+    "url": "https://github.com/ts-common/json/issues"
   },
   "files": [
     "index.d.ts"
   ],
-  "homepage": "https://github.com/ts-common/unknown#readme",
+  "homepage": "https://github.com/ts-common/json#readme",
   "devDependencies": {
     "typescript": "^2.9.1"
   },
