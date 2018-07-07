@@ -1,30 +1,25 @@
-export namespace Json {
-
+// StringMap<Json|undefined>
 export interface ObjectProperties {
-    readonly [name: string]: Unknown
+    readonly [name: string]: Json|undefined
 }
 
 export type Object = object & ObjectProperties
 
-export interface ArrayProperties {
-    readonly [index: number]: Unknown
-}
+// ReadonlyArray<Json>
+export type ArrayObject = Array<any>
 
-// ReadonlyArray<Unknown>
-export type ArrayObject = any[] & ArrayProperties
-
-export type Unknown = null|boolean|string|number|Object|ArrayObject
+export type Json = null|boolean|string|number|Object|ArrayObject
 
 export interface Visitor<T> {
     asNull(): T
     asBoolean(value: boolean): T
     asString(value: string): T
     asNumber(value: number): T
-    asObject(value: Object): T
-    asArray(value: ReadonlyArray<Unknown>): T
+    asObject(value: ObjectProperties): T
+    asArray(value: ReadonlyArray<Json>): T
 }
 
-export function visit<T>(value: Unknown, visitor: Visitor<T>) {
+export function visit<T>(value: Json, visitor: Visitor<T>) {
     if (value === null) {
         return visitor.asNull()
     }
@@ -43,4 +38,6 @@ export function visit<T>(value: Unknown, visitor: Visitor<T>) {
     return visitor.asObject(value)
 }
 
-}
+export const parse: (str: string) => Json = JSON.parse
+
+export const stringify: (json: Json) => string = JSON.stringify

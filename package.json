@@ -1,6 +1,6 @@
 {
   "name": "@ts-common/unknown",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Unknown Type",
   "main": "index.js",
   "scripts": {
@@ -22,5 +22,6 @@
   "homepage": "https://github.com/ts-common/unknown#readme",
   "devDependencies": {
     "typescript": "^2.9.1"
-  }
+  },
+  "dependencies": {}
 }
