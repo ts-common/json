@@ -1,11 +1,12 @@
 {
   "name": "@ts-common/json",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "JSON Data Type",
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "tslint": "tslint --project tsconfig.json",
+    "test": "tsc && npm run tslint",
     "prepack": "npm install & tsc"
   },
   "repository": {
@@ -22,7 +23,10 @@
   ],
   "homepage": "https://github.com/ts-common/json#readme",
   "devDependencies": {
-    "typescript": "^2.9.1"
+    "tslint": "^5.11.0",
+    "typescript": "3.0.0-rc"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@ts-common/array": "0.0.0"
+  }
 }
