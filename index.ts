@@ -1,15 +1,13 @@
-import * as array from "@ts-common/array"
+import * as _ from "@ts-common/iterator"
 
 // StringMap<Json|undefined>
 export interface JsonObject {
     readonly [name: string]: Json|undefined
 }
 
-export type JsonArray = ReadonlyArray<Json>
+export interface JsonArray extends ReadonlyArray<Json> {}
 
-export interface JsonArrayImplementation extends array.ImmutableArray<Json> {}
-
-export type Json = null|boolean|string|number|JsonArrayImplementation|JsonObject
+export type Json = null|boolean|string|number|JsonArray|JsonObject
 
 export interface Visitor<T> {
     asNull(): T
@@ -25,7 +23,7 @@ export function visit<T>(value: Json, visitor: Visitor<T>) {
         typeof value === "boolean" ? visitor.asBoolean(value) :
         typeof value === "string" ? visitor.asString(value) :
         typeof value === "number" ? visitor.asNumber(value) :
-        value instanceof Array ? visitor.asArray(value) :
+        _.isArray(value) ? visitor.asArray(value) :
         visitor.asObject(value)
 }
 
