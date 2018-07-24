@@ -1,6 +1,6 @@
 {
   "name": "@ts-common/json",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "JSON Data Type",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,7 @@
     "typescript": "3.0.0-rc"
   },
   "dependencies": {
-    "@ts-common/iterator": "0.0.28"
+    "@ts-common/iterator": "0.0.28",
+    "@ts-common/string-map": "0.0.4"
   }
 }

@@ -1,9 +1,7 @@
 import * as _ from "@ts-common/iterator"
+import { StringMap } from "@ts-common/string-map"
 
-// StringMap<Json|undefined>
-export interface JsonObject {
-    readonly [name: string]: Json|undefined
-}
+export interface JsonObject extends StringMap<Json|undefined> {}
 
 export interface JsonArray extends ReadonlyArray<Json> {}
 
