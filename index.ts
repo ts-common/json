@@ -28,3 +28,7 @@ export function visit<T>(value: Json, visitor: Visitor<T>) {
 export const parse: (str: string) => Json = JSON.parse
 
 export const stringify: (json: Json) => string = JSON.stringify
+
+export type NotUndefined<T> = T extends undefined ? never : T
+
+export type Property<T, K extends keyof T> = NotUndefined<T[K]>
