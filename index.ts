@@ -29,6 +29,6 @@ export const parse: (str: string) => Json = JSON.parse
 
 export const stringify: (json: Json) => string = JSON.stringify
 
-export type NotUndefined<T> = T extends undefined ? never : T
+export type NonUndefined<T> = T extends undefined ? never : T
 
-export type Property<T, K extends keyof T> = NotUndefined<T[K]>
+export type Property<T, K extends keyof T> = NonUndefined<T[K]>
