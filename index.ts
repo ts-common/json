@@ -9,7 +9,9 @@ export interface JsonArrayInterface extends ReadonlyArray<Json> {}
 
 export type JsonArray = JsonArrayInterface & object
 
-export type Json = null|boolean|string|number|JsonArray|JsonObject
+export type JsonPrimitive = null|boolean|string|number
+
+export type Json = JsonPrimitive|JsonArray|JsonObject
 
 export interface Visitor<T> {
     asNull(): T
