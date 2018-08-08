@@ -11,7 +11,9 @@ export type JsonArray = JsonArrayInterface & object
 
 export type JsonPrimitive = null|boolean|string|number
 
-export type Json = JsonPrimitive|JsonArray|JsonObject
+export type JsonRef = JsonObject|JsonArray
+
+export type Json = JsonPrimitive|JsonRef
 
 export interface Visitor<T> {
     asNull(): T
