@@ -15,13 +15,11 @@ export type JsonRef = JsonObject|JsonArray
 
 export type Json = JsonPrimitive|JsonRef
 
-export interface MutableJsonObjectInterface extends MutableStringMap<Json|undefined> {}
+export type MutableJsonObject = MutableStringMap<Json|undefined> & object
 
-export type MutableJsonObject = MutableJsonObjectInterface & object
+export type MutableJsonArray = Json[]
 
-export interface MutableJsonArrayInterface extends Array<Json> {}
-
-export type MutableJsonArray = MutableJsonArrayInterface & object
+export type MutableJsonRef = MutableJsonObject|MutableJsonArray
 
 export interface Visitor<T> {
     asNull(): T
