@@ -1,5 +1,5 @@
 import * as _ from "@ts-common/iterator"
-import { StringMap } from "@ts-common/string-map"
+import { MutableStringMap, StringMap } from "@ts-common/string-map"
 
 export interface JsonObjectInterface extends StringMap<Json|undefined> {}
 
@@ -14,6 +14,14 @@ export type JsonPrimitive = null|boolean|string|number
 export type JsonRef = JsonObject|JsonArray
 
 export type Json = JsonPrimitive|JsonRef
+
+export interface MutableJsonObjectInterface extends MutableStringMap<Json|undefined> {}
+
+export type MutableJsonObject = MutableJsonObjectInterface & object
+
+export interface MutableJsonArrayInterface extends Array<Json> {}
+
+export type MutableJsonArray = MutableJsonArrayInterface & object
 
 export interface Visitor<T> {
     asNull(): T
