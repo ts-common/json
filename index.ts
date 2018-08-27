@@ -46,3 +46,6 @@ export const stringify: (json: Json) => string = JSON.stringify
 export type NonUndefined<T> = T extends undefined ? never : T
 
 export type Property<T, K extends keyof T> = NonUndefined<T[K]>
+
+export const isPrimitive = (value: JsonPrimitive|object): value is JsonPrimitive =>
+    value === null || typeof value !== "object"
