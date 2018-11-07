@@ -22,12 +22,12 @@ export type MutableJsonArray = Json[]
 export type MutableJsonRef = MutableJsonObject|MutableJsonArray
 
 export interface Visitor<T> {
-    asNull(): T
-    asBoolean(value: boolean): T
-    asString(value: string): T
-    asNumber(value: number): T
-    asArray(value: JsonArray): T
-    asObject(value: JsonObject): T
+    readonly asNull: () => T
+    readonly asBoolean: (value: boolean) => T
+    readonly asString: (value: string) => T
+    readonly asNumber: (value: number) => T
+    readonly asArray: (value: JsonArray) => T
+    readonly asObject: (value: JsonObject) => T
 }
 
 export const visit = <T>(value: Json, visitor: Visitor<T>) =>
