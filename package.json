@@ -2,7 +2,7 @@
   "name": "@ts-common/json",
   "version": "0.1.0",
   "description": "JSON Data Type",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "tsc": "tsc",
     "tslint": "tslint --project tsconfig.json",
@@ -19,10 +19,16 @@
     "url": "https://github.com/ts-common/json/issues"
   },
   "files": [
-    "index.d.ts"
+    "dist/index.d.ts",
+    "dist/index.js",
+    "dist/index.js.map",
+    "dist/index.d.ts.map",
+    "src/index.ts"
   ],
   "homepage": "https://github.com/ts-common/json#readme",
   "devDependencies": {
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
     "tslint": "^5.11.0",
     "typescript": "^3.1.6"
   },
