@@ -48,3 +48,21 @@ export type Property<T, K extends keyof T> = NonUndefined<T[K]>
 
 export const isPrimitive = (value: JsonPrimitive|object): value is JsonPrimitive =>
     value === null || typeof value !== "object"
+
+export const isObject = (value: JsonPrimitive|object): value is JsonObject =>
+    value !== null && typeof value === "object" && !_.isArray(value)
+
+export type JsonType = "null"|"boolean"|"string"|"number"|"object"|"array"
+
+export const typeOf = (value: Json): JsonType =>
+    visit<JsonType>(
+        value,
+        {
+            asNull: () => "null",
+            asBoolean: () => "boolean",
+            asNumber: () => "number",
+            asString: () => "string",
+            asArray: () => "array",
+            asObject: () => "object",
+        }
+    )

@@ -6,7 +6,11 @@
     "jsRules": {},
     "rules": {
         "interface-name": false,
-        "semicolon": false
+        "semicolon": false,
+        "object-literal-sort-keys": false,
+        "arrow-parens": false,
+        "no-empty": false,
+        "trailing-comma": false
     },
     "rulesDirectory": []
 }
