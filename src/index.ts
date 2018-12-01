@@ -1,7 +1,7 @@
 import * as _ from "@ts-common/iterator"
 import { MutableStringMap, StringMap } from "@ts-common/string-map"
 
-export interface JsonObjectInterface extends StringMap<Json|undefined> {}
+export interface JsonObjectInterface extends StringMap<Json> {}
 
 export type JsonObject = JsonObjectInterface & object
 
@@ -15,7 +15,7 @@ export type JsonRef = JsonObject|JsonArray
 
 export type Json = JsonPrimitive|JsonRef
 
-export type MutableJsonObject = MutableStringMap<Json|undefined> & object
+export type MutableJsonObject = MutableStringMap<Json> & object
 
 export type MutableJsonArray = Json[]
 
