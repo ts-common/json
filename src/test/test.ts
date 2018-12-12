@@ -8,7 +8,7 @@ describe("isObject", () => {
     assert.strictEqual(index.isObject(x), true)
   })
   it("array", () => {
-    const x: Array<unknown> = []
+    const x: index.Json[] = []
     assert.strictEqual(index.isObject(x), false)
   })
   it("primitive", () => {
@@ -115,4 +115,11 @@ describe("typeOf", () => {
   it("number", () => assert.strictEqual(index.typeOf(4), "number"))
   it("boolean", () => assert.strictEqual(index.typeOf(false), "boolean"))
   it("array", () => assert.strictEqual(index.typeOf([]), "array"))
+})
+
+describe("sealed object", () => {
+  interface X { a: number }
+  const x: X & index.EmptyObject = { a: 54 }
+  const j: index.Json = x
+  assert.deepStrictEqual(j, { a: 54 })
 })

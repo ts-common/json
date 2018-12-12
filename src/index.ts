@@ -42,14 +42,10 @@ export const parse: (str: string) => Json = JSON.parse
 
 export const stringify: (json: Json) => string = JSON.stringify
 
-export type NonUndefined<T> = T extends undefined ? never : T
-
-export type Property<T, K extends keyof T> = NonUndefined<T[K]>
-
-export const isPrimitive = (value: JsonPrimitive|object): value is JsonPrimitive =>
+export const isPrimitive = (value: Json): value is JsonPrimitive =>
     value === null || typeof value !== "object"
 
-export const isObject = (value: JsonPrimitive|object): value is JsonObject =>
+export const isObject = (value: Json): value is JsonObject =>
     value !== null && typeof value === "object" && !_.isArray(value)
 
 export type JsonType = "null"|"boolean"|"string"|"number"|"object"|"array"
@@ -66,3 +62,5 @@ export const typeOf = (value: Json): JsonType =>
             asObject: () => "object",
         }
     )
+
+export type EmptyObject = { readonly [k in never]?: never }
