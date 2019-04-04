@@ -9,7 +9,7 @@ export interface JsonArrayInterface extends ReadonlyArray<Json> {}
 
 export type JsonArray = JsonArrayInterface & object
 
-export type JsonArrayOf<T extends Json> = ReadonlyArray<T> & object
+export type JsonArrayOf<T extends Json> = readonly T[] & object
 
 export type JsonPrimitive = null|boolean|string|number
 
