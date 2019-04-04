@@ -1,6 +1,6 @@
 {
   "name": "@ts-common/json",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "JSON Data Type",
   "main": "dist/index.js",
   "scripts": {
@@ -46,11 +46,11 @@
     "@types/node": "^10.12.12",
     "mocha": "^6.0.2",
     "nyc": "^13.3.0",
-    "tslint": "^5.14.0",
-    "typescript": "^3.3.4000"
+    "tslint": "^5.15.0",
+    "typescript": "^3.4.1"
   },
   "dependencies": {
-    "@ts-common/iterator": "^0.2.0",
-    "@ts-common/string-map": "^0.2.6"
+    "@ts-common/iterator": "^0.3.0",
+    "@ts-common/string-map": "^0.3.0"
   }
 }
