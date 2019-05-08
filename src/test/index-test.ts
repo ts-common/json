@@ -1,3 +1,6 @@
+// tslint:disable:no-null-keyword
+// tslint:disable:no-magic-numbers
+
 import * as assert from "assert"
 import * as index from "../index"
 
@@ -15,7 +18,6 @@ describe("isObject", () => {
     assert.strictEqual(index.isObject(x), false)
   })
   it("null", () => {
-    // tslint:disable-next-line:no-null-keyword
     const x = null
     assert.strictEqual(index.isObject(x), false)
   })
@@ -27,11 +29,10 @@ describe("isPrimitive", () => {
     assert.strictEqual(index.isPrimitive(x), true)
   })
   it("null", () => {
-    // tslint:disable-next-line:no-null-keyword
     const x = null
     assert.strictEqual(index.isPrimitive(x), true)
   })
-  it("null", () => {
+  it("not primitive", () => {
     const x = {}
     assert.strictEqual(index.isPrimitive(x), false)
   })
@@ -50,7 +51,6 @@ describe("visit", () => {
     })
   })
   it("null", () => {
-    // tslint:disable-next-line:no-null-keyword
     const x = null
     index.visit(x, {
       asNull: () => { },
@@ -78,21 +78,18 @@ describe("visit", () => {
       asNull: () => { assert.fail() },
       asBoolean: () => { assert.fail() },
       asString: () => { assert.fail() },
-      // tslint:disable-next-line:no-magic-numbers
       asNumber: v => { assert.strictEqual(v, 5) },
       asArray: () => { assert.fail() },
       asObject: () => { assert.fail() },
     })
   })
   it("array", () => {
-    // tslint:disable-next-line:no-magic-numbers
     const x = [76]
     index.visit(x, {
       asNull: () => { assert.fail() },
       asBoolean: () => { assert.fail() },
       asString: () => { assert.fail() },
       asNumber: () => { assert.fail() },
-      // tslint:disable-next-line:no-magic-numbers
       asArray: v => { assert.deepStrictEqual(v, [76]) },
       asObject: () => { assert.fail() },
     })
@@ -115,16 +112,13 @@ describe("typeOf", () => {
     const x = {}
     assert.strictEqual(index.typeOf(x), "object")
   })
-  // tslint:disable-next-line:no-null-keyword
   it("null", () => {
-    // tslint:disable-next-line:no-null-keyword
     assert.strictEqual(index.typeOf(null), "null")
   })
   it("string", () => {
     assert.strictEqual(index.typeOf("ssss"), "string")
   })
   it("number", () => {
-    // tslint:disable-next-line:no-magic-numbers
     assert.strictEqual(index.typeOf(4), "number")
   })
   it("boolean", () => {
