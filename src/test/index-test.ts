@@ -1,5 +1,7 @@
+// tslint:disable:no-null-keyword
+// tslint:disable:no-magic-numbers
+
 import * as assert from "assert"
-import { describe } from "mocha"
 import * as index from "../index"
 
 describe("isObject", () => {
@@ -30,7 +32,7 @@ describe("isPrimitive", () => {
     const x = null
     assert.strictEqual(index.isPrimitive(x), true)
   })
-  it("null", () => {
+  it("not primitive", () => {
     const x = {}
     assert.strictEqual(index.isPrimitive(x), false)
   })
@@ -110,14 +112,25 @@ describe("typeOf", () => {
     const x = {}
     assert.strictEqual(index.typeOf(x), "object")
   })
-  it("null", () => assert.strictEqual(index.typeOf(null), "null"))
-  it("string", () => assert.strictEqual(index.typeOf("ssss"), "string"))
-  it("number", () => assert.strictEqual(index.typeOf(4), "number"))
-  it("boolean", () => assert.strictEqual(index.typeOf(false), "boolean"))
-  it("array", () => assert.strictEqual(index.typeOf([]), "array"))
+  it("null", () => {
+    assert.strictEqual(index.typeOf(null), "null")
+  })
+  it("string", () => {
+    assert.strictEqual(index.typeOf("ssss"), "string")
+  })
+  it("number", () => {
+    assert.strictEqual(index.typeOf(4), "number")
+  })
+  it("boolean", () => {
+    assert.strictEqual(index.typeOf(false), "boolean")
+  })
+  it("array", () => {
+    assert.strictEqual(index.typeOf([]), "array")
+  })
 })
 
 describe("sealed object", () => {
+  // tslint:disable-next-line:completed-docs
   interface X { a: number }
   const x: X & index.EmptyObject = { a: 54 }
   const j: index.Json = x
