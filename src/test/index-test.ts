@@ -1,5 +1,4 @@
 import * as assert from "assert"
-import { describe } from "mocha"
 import * as index from "../index"
 
 describe("isObject", () => {
@@ -16,6 +15,7 @@ describe("isObject", () => {
     assert.strictEqual(index.isObject(x), false)
   })
   it("null", () => {
+    // tslint:disable-next-line:no-null-keyword
     const x = null
     assert.strictEqual(index.isObject(x), false)
   })
@@ -27,6 +27,7 @@ describe("isPrimitive", () => {
     assert.strictEqual(index.isPrimitive(x), true)
   })
   it("null", () => {
+    // tslint:disable-next-line:no-null-keyword
     const x = null
     assert.strictEqual(index.isPrimitive(x), true)
   })
@@ -49,6 +50,7 @@ describe("visit", () => {
     })
   })
   it("null", () => {
+    // tslint:disable-next-line:no-null-keyword
     const x = null
     index.visit(x, {
       asNull: () => { },
@@ -76,18 +78,21 @@ describe("visit", () => {
       asNull: () => { assert.fail() },
       asBoolean: () => { assert.fail() },
       asString: () => { assert.fail() },
+      // tslint:disable-next-line:no-magic-numbers
       asNumber: v => { assert.strictEqual(v, 5) },
       asArray: () => { assert.fail() },
       asObject: () => { assert.fail() },
     })
   })
   it("array", () => {
+    // tslint:disable-next-line:no-magic-numbers
     const x = [76]
     index.visit(x, {
       asNull: () => { assert.fail() },
       asBoolean: () => { assert.fail() },
       asString: () => { assert.fail() },
       asNumber: () => { assert.fail() },
+      // tslint:disable-next-line:no-magic-numbers
       asArray: v => { assert.deepStrictEqual(v, [76]) },
       asObject: () => { assert.fail() },
     })
@@ -110,14 +115,28 @@ describe("typeOf", () => {
     const x = {}
     assert.strictEqual(index.typeOf(x), "object")
   })
-  it("null", () => assert.strictEqual(index.typeOf(null), "null"))
-  it("string", () => assert.strictEqual(index.typeOf("ssss"), "string"))
-  it("number", () => assert.strictEqual(index.typeOf(4), "number"))
-  it("boolean", () => assert.strictEqual(index.typeOf(false), "boolean"))
-  it("array", () => assert.strictEqual(index.typeOf([]), "array"))
+  // tslint:disable-next-line:no-null-keyword
+  it("null", () => {
+    // tslint:disable-next-line:no-null-keyword
+    assert.strictEqual(index.typeOf(null), "null")
+  })
+  it("string", () => {
+    assert.strictEqual(index.typeOf("ssss"), "string")
+  })
+  it("number", () => {
+    // tslint:disable-next-line:no-magic-numbers
+    assert.strictEqual(index.typeOf(4), "number")
+  })
+  it("boolean", () => {
+    assert.strictEqual(index.typeOf(false), "boolean")
+  })
+  it("array", () => {
+    assert.strictEqual(index.typeOf([]), "array")
+  })
 })
 
 describe("sealed object", () => {
+  // tslint:disable-next-line:completed-docs
   interface X { a: number }
   const x: X & index.EmptyObject = { a: 54 }
   const j: index.Json = x

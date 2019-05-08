@@ -1,7 +1,7 @@
 {
     "defaultSeverity": "error",
     "extends": [
-        "tslint:recommended"
+        "tslint:all"
     ],
     "jsRules": {},
     "rules": {
@@ -10,7 +10,13 @@
         "object-literal-sort-keys": false,
         "arrow-parens": false,
         "no-empty": false,
-        "trailing-comma": false
+        "trailing-comma": false,
+        "ordered-imports": false,
+        "linebreak-style": false,
+        "prefer-method-signature": false,
+        "member-ordering": false,
+        "typedef": false,
+        "file-name-casing": [true, "kebab-case"]
     },
     "rulesDirectory": []
 }
