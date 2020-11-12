@@ -133,6 +133,6 @@ describe("sealed object", () => {
   // tslint:disable-next-line:completed-docs
   interface X { a: number }
   const x: X & index.EmptyObject = { a: 54 }
-  const j: index.Json = x
+  const j: index.Json = x as unknown as index.Json
   assert.deepStrictEqual(j, { a: 54 })
 })

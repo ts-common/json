@@ -1,6 +1,6 @@
 {
   "name": "@ts-common/json",
-  "version": "0.3.1",
+  "version": "1.1.0",
   "description": "JSON Data Type",
   "main": "dist/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/ts-common/json.git"
   },
   "author": "Sergey Shandar",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ts-common/json/issues"
   },
@@ -66,7 +66,7 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "@ts-common/iterator": "^0.3.1",
-    "@ts-common/string-map": "^0.3.0"
+    "@ts-common/iterator": "^1.1.0",
+    "@ts-common/string-map": "^1.1.0"
   }
 }
